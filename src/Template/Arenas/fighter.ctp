@@ -1,3 +1,3 @@
-<?php $this->assign('title', 'Fighter');?>
+<?php $this->assign('title', 'Combattant');?>
 
-Are you ready for the fight ? fidsjfjlsfjsdkflkds
+Are you ready for the fight ? 

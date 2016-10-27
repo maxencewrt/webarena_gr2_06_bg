@@ -1,3 +1,3 @@
-<?php $this->assign('title', 'Sight');?>
+<?php $this->assign('title', 'Vision');?>
 
 Sight page

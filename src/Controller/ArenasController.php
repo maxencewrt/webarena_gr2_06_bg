@@ -21,7 +21,7 @@ class ArenasController extends AppController
     public function index()
     {
             // die('test');
-        $this->set('myname', "Julien Falconnet");
+        $this->set('myname', "Inconnu");
         
         //$this->loadModel('Fighters');
         //$figterlist=$this->Fighters->find('all');

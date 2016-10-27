@@ -1,3 +1,3 @@
-<?php $this->assign('title', 'Diary');?>
+<?php $this->assign('title', 'Journal');?>
 
 Diary page
