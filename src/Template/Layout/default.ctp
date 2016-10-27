@@ -20,7 +20,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
 <section class="lienPage">
     <?php echo $this->Html->link(' Accueil ', array('controller' => 'Arenas', 'action' => '/'));
-    echo $this->Html->link(' Fighter ', array('controller' => 'Arenas', 'action' => 'fighter'));
+    echo $this->Html->link(' Fighter1 ', array('controller' => 'Arenas', 'action' => 'fighter'));
     echo $this->Html->link(' Login ', array('controller' => 'Arenas', 'action' => 'login'));
     echo $this->Html->link(' Sight ', array('controller' => 'Arenas', 'action' => 'sight'));
     echo $this->Html->link(' Diary ', array('controller' => 'Arenas', 'action' => 'diary'));?>
