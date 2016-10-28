@@ -1,5 +1,3 @@
 <?php $this->assign('title', 'Vision');?>
 
-Sight page
-
-Test 
+Sight page ojzfofijozej
