@@ -5,14 +5,8 @@ Are you ready for the fight ?
 <div>
     <h4><span class="light">Vos informations</span></h4>
 
-    nom : <?php echo $recupNom ?>
-        <div data="<?php echo $recupNom; ?>"></div>
-
-    level : <?php echo $level; ?>
-        <div class="progress-bar bar" data-percentage="<?php echo $level; ?>"></div>
-
-    vie : <?php echo $vie; ?>
-        <div class="progress-bar bar" data-percentage="<?php echo $vie; ?>"></div>
+    nom : <?php echo $infoNom ?>
+    nom : <?php echo $NomCombatant ?>
 
 </div>
 

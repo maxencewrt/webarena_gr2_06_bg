@@ -22,33 +22,38 @@ class ArenasController extends AppController
     {
             // die('test');
         $this->set('myname', "Inconnu");
-        
+
         //$this->loadModel('Fighters');
         //$figterlist=$this->Fighters->find('all');
         //pr($figterlist->toArray());
     }
-        
+
     public function login()
     {
-        $this->loadModel('Fighters');
-        $combatantMax = $this -> Fighters -> getBestFighter();
-        $this->set('aaa', $combatantMax);
-        //$figterlistLevel=$this->Fighters->order('level');
+
     }
-    
+
     public function fighter()
     {
- 
+      //Afficher le meilleur combatant
+      $this->loadModel('Fighters');
+      //$combatantMax = $this -> Fighters -> getBestFighter();
+      //$this->set('aaa', $combatantMax);
+
+      //Affichage des données du combatant
+      $infoNom = $this-> Fighters -> infosName();
+      $this->set('NomCombatant', $infoNom);
+
     }
-    
+
     public function sight()
     {
- 
+
     }
-    
+
     public function diary()
     {
- 
+
     }
-    
+
 }
