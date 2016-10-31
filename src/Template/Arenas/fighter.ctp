@@ -15,16 +15,16 @@ Are you ready for the fight ?
 
     <div>
 
-        <h1>Your character:</h1>
+        <h1>Votre personnage:</h1>
 
-        <?php echo $this->Html->image('perso.jpeg', array('alt' => 'Photo du personnage', 'width' => '12%')); ?>
+        <?php echo $this->Html->image('perso.jpg', array('alt' => 'Photo du personnage', 'width' => '12%')); ?>
 
-        <h2>Skills:</h2>
+        <h2>Caractéristiques:</h2>
 
         <dl>
-            <dt>Level:  <?php echo "$lvl";?></dt>
-            <dt>Strength: <?php echo "$strength";?></dt>
-            <dt>Health:  <?php echo "$health";?></dt>
+            <dt>Niveau:  <?php echo "$lvl";?></dt>
+            <dt>Force: <?php echo "$strength";?></dt>
+            <dt>Santé:  <?php echo "$health";?></dt>
             <dt>Experience:  <?php echo "$exp";?></dt>
         </dl>
 
