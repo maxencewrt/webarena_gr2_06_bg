@@ -3,7 +3,7 @@
 Are you ready for the fight ?
 
 <html>
-    <p> Create your character !! </p>
+    <p> Crée votre personnage: </p>
 
     <?php
         echo $this->Form->create('createFighter');
