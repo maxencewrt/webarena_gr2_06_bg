@@ -18,7 +18,7 @@ class FightersTable extends Table
         //tri by id
 
         $recupNom = $this->find("list")->order(['name' => 'DESC']);
-        echo($recupNom->first());
+        echo($recupNom);
     }
 
 }

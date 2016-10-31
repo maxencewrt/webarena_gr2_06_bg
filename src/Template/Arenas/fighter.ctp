@@ -5,7 +5,6 @@ Are you ready for the fight ?
 <div>
     <h4><span class="light">Vos informations</span></h4>
 
-    nom : <?php echo $infoNom ?>
     nom : <?php echo $NomCombatant ?>
 
 </div>
