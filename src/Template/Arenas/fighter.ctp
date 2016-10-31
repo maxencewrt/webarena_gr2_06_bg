@@ -8,8 +8,9 @@ Are you ready for the fight ?
     <?php
         echo $this->Form->create('createFighter');
         echo $this->Form->input('nom');
-        echo $this->Form->end('Create');
     ?>
+    <?= $this->Form->button('Créer', ['type' => 'submit']);?>
+    <?= $this->Form->end();?>
 
 
     <div>
