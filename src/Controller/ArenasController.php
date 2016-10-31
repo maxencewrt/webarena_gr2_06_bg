@@ -33,16 +33,34 @@ class ArenasController extends AppController
 
     }
 
-    public function fighter()
-    {
+    public function fighter(){
       //Afficher le meilleur combatant
       $this->loadModel('Fighters');
       //$combatantMax = $this -> Fighters -> getBestFighter();
       //$this->set('aaa', $combatantMax);
 
       //Affichage des données du combatant
-      $infoNom = $this-> Fighters -> infosName();
-      $this->set('NomCombatant', $infoNom);
+      //$infoNom = $this-> Fighters -> infosName();
+      //$this->set('NomCombatant', $infoNom);
+
+      if ($this->request->is('post')){
+        if(isset($this->request->data['createFighter'])){
+          $this->Fighter->createCharacter($this->request->data['createFighter']['nom']);
+        }
+      }
+
+      if ($this->request->is('post')) {
+          if(isset($this->request->data['NewLevel'])) {
+              $this->Fighter->level_up(1, $this->request->data['NewLevel']['improve']);
+          }
+      }
+
+      //$this->set('strength', $this->Fighter->get_carac(1, 'skill_strength'));
+      //$this->set('sight', $this->Fighter->get_carac(1, 'skill_sight'));
+      //$this->set('health', $this->Fighter->get_carac(1, 'skill_health'));
+      //$this->set('lvl', $this->Fighter->get_carac(1, 'level'));
+      //$this->set('exp', $this->Fighter->get_carac(1, 'xp'));
+      //$this->set('raw',$this->Fighter->findById(1));
 
     }
 
@@ -55,5 +73,4 @@ class ArenasController extends AppController
     {
 
     }
-
-}
+  }
