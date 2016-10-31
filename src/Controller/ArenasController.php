@@ -46,6 +46,24 @@ class ArenasController extends AppController
         $this->set('message',$message);
       }
 
+      public function newlogin()
+      {
+        // Creation nouveau  joueur
+        $this->loadModel('Players');
+        $this->set('player_id', $this->request->session()->read('Players.id'));
+        $player = $this->Players->newEntity();
+
+        if ($this->request->is('post')) {
+          $player = $this->Players->patchEntity($player, $this->request->data);
+          if ($this->Players->save($player)) {
+            $this->Flash->success(__('Nouveau compte crée'));
+          }
+          else{
+          $this->Flash->error(__('Impossible de créer un compte'));
+        }
+        $this->set('player', $player);
+      }
+    }
 
     public function fighter(){
       //Afficher le meilleur combatant

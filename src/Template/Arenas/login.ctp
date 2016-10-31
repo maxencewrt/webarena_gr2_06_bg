@@ -17,12 +17,4 @@ Please enter your IDs in blank fields below to log in :
 
 <h2>Inscription</h2>
 
-<?php echo $this->Form->create("User");
-
-echo $this->Form->input("username", array("placeholder" => "Username"));
-echo $this->Form->input("mail", array("placeholder" => "Email"));
-echo $this->Form->input("password", array("placeholder" => "Password"));
-?>
-
-<?= $this->Form->button('Finish', ['type' => 'submit']);?>
-<?= $this->Form->end();?>
+<a href="newlogin"><input type="button" name="créer un compte "value="créer un compte "/></a>
