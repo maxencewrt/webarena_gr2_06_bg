@@ -4,11 +4,15 @@ Please enter your IDs in blank fields below to log in :
 
 <?php echo $this->Form->create('Connection'); ?>
 
-<div class="row">
-        <?php echo $this->Form->input('username', array("placeholder" => "Username"));?>
-        <?php echo $this->Form->input('password', array("placeholder" => "Password"));?>
-        <?= $this->Form->button('Connection', ['type' => 'submit']);?>
+<div>
+        <?php echo $this->Form->create(null);
+        echo $this->Form->input('userName', array("placeholder" => "Username", ['type' => 'email']));?>
+        <?php echo $this->Form->password('password', array("placeholder" => "Password"));?>
+        <?= $this->Form->submit('Login', ['type' => 'submit']);?>
         <?= $this->Form->end();?>
+
+        <h3> Informations </h3>
+        <?php echo $message;?>
 </div>
 
 <h2>Inscription</h2>

@@ -30,8 +30,27 @@ class ArenasController extends AppController
 
     public function login()
     {
+      $message="</br> Veuillez vous connecter";
+      if($this->request->is('post')){
+        $data= $this->request->data;
+        $this->loadModel('Players');
+        $joueur=$this->Players->find('all')->where(['Players.email' => $data['userName']]);
+        $joueur = $joueur->first();
+        if($joueur['password'] == $data['password'] AND $joueur['email'] == $data['userName']){
+          $session = $this->request->session();
 
-    }
+          $session->write([
+            'Players.id' => $joueur['id'] ,
+            'Players.email' => $joueur['email']
+          ]);
+          $message="Connexion réussie";
+          }else{
+            $message="Identifiants incorrects";
+          }
+        }
+        $this->set('message',$message);
+      }
+
 
     public function fighter(){
       //Afficher le meilleur combatant
