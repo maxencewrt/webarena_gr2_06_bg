@@ -36,15 +36,10 @@ class ArenasController extends AppController
         $this->loadModel('Players');
         $joueur=$this->Players->find('all')->where(['Players.email' => $data['userName']]);
         $joueur = $joueur->first();
-        if($joueur['password'] == $data['password'] AND $joueur['email'] == $data['userName']){
-          $session = $this->request->session();
-
-          $session->write([
-            'Players.id' => $joueur['id'] ,
-            'Players.email' => $joueur['email']
-          ]);
+        if($joueur['password'] == $data['password'] =! null AND $joueur['email'] == $data['userName'] =! null ){
           $message="Connexion réussie";
-          }else{
+        }
+        else{
             $message="Identifiants incorrects";
           }
         }
