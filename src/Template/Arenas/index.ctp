@@ -1,6 +1,6 @@
 <?php $this->assign('title', 'Accueil');?>
 
-Bienvenue <?php echo $myname;?> dans WebArena
+<article> Bienvenue <?php echo $myname;?> dans WebArena </article>
 
 <!-- About Section -->
     <article>

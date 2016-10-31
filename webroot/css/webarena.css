@@ -10,7 +10,7 @@ and open the template in the editor.
 
 article
 {
-    font: normal small-caps 20px fantasy;
+    font: normal small-caps 20px Arial, fantasy;
 }
 
 nav
@@ -37,7 +37,7 @@ section
     margin : 10px 50px 10px;
     padding : 5px 5px 5px;
     background-color : #e13027;
-    font: normal small-caps 200%/200% fantasy;
+    font: normal small-caps 200%/200% Arial, fantasy;
     text-align: center;
 }
 
