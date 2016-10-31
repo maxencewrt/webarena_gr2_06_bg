@@ -1,3 +1,3 @@
 <?php $this->assign('title', 'Journal');?>
 
-Diary page
+<p> Ci-dessous les derniers évènements de vos combats : </p>

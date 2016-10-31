@@ -71,6 +71,8 @@ class ArenasController extends AppController
 
     public function diary()
     {
-
+        $this -> loadModel('Events');
+        $lastEvents = $this -> Events -> displayEvents();
+        $this -> set('lastEventsDisplay', $lastEvents);
     }
   }
