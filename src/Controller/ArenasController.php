@@ -65,6 +65,44 @@ class ArenasController extends AppController
       }
     }
 
+    public function newfighter()
+    {
+      // Creation nouveau combatant
+      $this->loadModel('Fighters');
+      $this->set('fighter_id', $this->request->session()->read('Fighters.id'));
+      $fighter = $this->Fighters->newEntity();
+
+      if ($this->request->is('post')) {
+        $fighter = $this->Fighters->patchEntity($fighter, $this->request->data);
+        if ($this->Fighters->save($fighter)) {
+          $this->Flash->success(__('Nouveau combatant crée'));
+        }
+        else{
+        $this->Flash->error(__('Impossible de créer un nouveau combatant'));
+      }
+      $this->set('fighter', $fighter);
+    }
+    }
+
+    public function newGuilde()
+    {
+    // Creation d'un nouvelle Guilde
+    $this->loadModel('Guilds');
+    $this->set('id', $this->request->session()->read('Guilds.id'));
+    $guild = $this->Guilds->newEntity();
+
+    if ($this->request->is('postGuild')) {
+      $guild = $this->Guilds->patchEntity($guild, $this->request->data);
+      if ($this->Guilds->save($guild)) {
+        $this->Flash->success(__('Nouvelle guilde crée'));
+      }
+      else{
+      $this->Flash->error(__('Impossible de créer une nouvelle Guilde'));
+    }
+    $this->set('guild', $guild);
+  }
+  }
+
     public function fighter(){
       //Afficher le meilleur combatant
       $this->loadModel('Fighters');
@@ -86,14 +124,6 @@ class ArenasController extends AppController
               $this->Fighter->level_up(1, $this->request->data['NewLevel']['improve']);
           }
       }
-
-      //$this->set('strength', $this->Fighter->get_carac(1, 'skill_strength'));
-      //$this->set('sight', $this->Fighter->get_carac(1, 'skill_sight'));
-      //$this->set('health', $this->Fighter->get_carac(1, 'skill_health'));
-      //$this->set('lvl', $this->Fighter->get_carac(1, 'level'));
-      //$this->set('exp', $this->Fighter->get_carac(1, 'xp'));
-      //$this->set('raw',$this->Fighter->findById(1));
-
     }
 
     public function sight()

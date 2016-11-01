@@ -5,13 +5,7 @@ Are you ready for the fight ?
 <html>
     <p> Crée votre personnage: </p>
 
-    <?php
-        echo $this->Form->create('createFighter');
-        echo $this->Form->input('nom');
-    ?>
-    <?= $this->Form->button('Créer', ['type' => 'submit']);?>
-    <?= $this->Form->end();?>
-
+    <a href="newfighter"><input type="button" name="créer un combatant "value="créer un combatant "/></a>
 
     <div>
 
