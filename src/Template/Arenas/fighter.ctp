@@ -7,6 +7,10 @@ Are you ready for the fight ?
 
     <a href="newfighter"><input type="button" name="créer un combatant "value="créer un combatant "/></a>
 
+    <p> Crée une guilde: </p>
+
+    <a href="newguilde"><input type="button" name="créer une guilde "value="créer une guilde "/></a>
+
     <div>
 
         <h1>Votre personnage:</h1>

@@ -28,6 +28,37 @@ class ArenasController extends AppController
         //pr($figterlist->toArray());
     }
 
+    public function forgottenpassword() {
+    if ($this->request->is('post')) {
+        if (isset($this->request->data['ForgottenPassword'])) {
+            if ($this->Player->sendPassword($this->request->data['ForgottenPassword']['email'])) {
+                $this->Session->setFlash("An email has been sent", 'notif');
+                $this->redirect(array('action' => 'login'));
+                } else {
+                   // $this->Flash->set("Wrong email adress");
+                }
+            }
+        }
+      }
+
+    public function changepassword() {
+        $messagechangemdp="</br> Aucun changement effectué";
+        if($this->request->is('post')){
+        $data= $this->request->data;
+        $this->loadModel('Players');
+        $user = $this->Players->find('all')->where(['Players.email' => $data['userName']]);
+        $user = $user->first();
+        $this->set('email', $user);
+          if ($user['password']==$data['ancienMDP']){
+            $user['password']==$data['newMPD'];
+            $messagechangemdp="mot de passe modifié";
+          }
+          else {
+            $messagechangemdp="Le nouveau mot de passe doit être différent de l'ancien";
+          }
+        }
+      }
+
     public function login()
     {
       $message="</br> Veuillez vous connecter";
@@ -87,19 +118,20 @@ class ArenasController extends AppController
     public function newGuilde()
     {
     // Creation d'un nouvelle Guilde
+    $messageGuilde="null";
     $this->loadModel('Guilds');
     $this->set('id', $this->request->session()->read('Guilds.id'));
     $guild = $this->Guilds->newEntity();
 
-    if ($this->request->is('postGuild')) {
+    if ($this->request->is('post')) {
       $guild = $this->Guilds->patchEntity($guild, $this->request->data);
       if ($this->Guilds->save($guild)) {
-        $this->Flash->success(__('Nouvelle guilde crée'));
+        $messageGuilde="Nouvelle guilde crée";
       }
       else{
-      $this->Flash->error(__('Impossible de créer une nouvelle Guilde'));
+        $messageGuilde="Impossible de créer une nouvelle Guilde";
     }
-    $this->set('guild', $guild);
+    $this->set('Guilds', $guild);
   }
   }
 

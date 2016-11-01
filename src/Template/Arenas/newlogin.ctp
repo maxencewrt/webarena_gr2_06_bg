@@ -6,4 +6,4 @@
     echo $this->Form->input('email');
     echo $this->Form->input('password');
     echo $this->Form->button(__("Créer un compte"));
-    echo $this->Form->end();
+    echo $this->Form->end();?>
