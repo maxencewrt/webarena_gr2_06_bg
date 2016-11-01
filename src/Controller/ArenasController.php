@@ -44,20 +44,23 @@ class ArenasController extends AppController
     public function changepassword() {
         $messagechangemdp="</br> Aucun changement effectué";
         if($this->request->is('post')){
-        $data= $this->request->data;
-        $this->loadModel('Players');
-        $user = $this->Players->find('all')->where(['Players.email' => $data['userName']]);
-        $user = $user->first();
-        $this->set('email', $user);
-          if ($user['password']==$data['ancienMDP']){
-            $user['password']==$data['newMPD'];
+          $data= $this->request->data;
+          $this->loadModel('Players');
+          $joueur=$this->Players->find('all')->where(['Players.email' => $data['name']]);
+          $joueur = $joueur->first();
+          if($joueur['password'] == $data['ancienMDP'] =! null AND $joueur['email'] == $data['name'] =! null ){
+            //$messagechangemdp="Connexion réussie";
+            $this->set('password','newMPD');
+            $this->Players->save($joueur);
             $messagechangemdp="mot de passe modifié";
           }
-          else {
-            $messagechangemdp="Le nouveau mot de passe doit être différent de l'ancien";
+          else{
+              $messagechangemdp="Identifiants incorrects";
+            }
           }
+          $this->set('messagechangemdp',$messagechangemdp);
         }
-      }
+        //$messagechangemdp="Le nouveau mot de passe doit être différent de l'ancien";
 
     public function login()
     {
@@ -100,6 +103,8 @@ class ArenasController extends AppController
     {
       // Creation nouveau combatant
       $this->loadModel('Fighters');
+      //$this->loadModel('Players');
+      //$player_id= $this->Players->player_id;
       $this->set('fighter_id', $this->request->session()->read('Fighters.id'));
       $fighter = $this->Fighters->newEntity();
 
@@ -118,7 +123,7 @@ class ArenasController extends AppController
     public function newGuilde()
     {
     // Creation d'un nouvelle Guilde
-    $messageGuilde="null";
+    $messageGuilde="Pas de guilde crée";
     $this->loadModel('Guilds');
     $this->set('id', $this->request->session()->read('Guilds.id'));
     $guild = $this->Guilds->newEntity();
@@ -131,8 +136,8 @@ class ArenasController extends AppController
       else{
         $messageGuilde="Impossible de créer une nouvelle Guilde";
     }
-    $this->set('Guilds', $guild);
   }
+  $this->set('messageGuilde', $messageGuilde);
   }
 
     public function fighter(){
@@ -144,18 +149,6 @@ class ArenasController extends AppController
       //Affichage des données du combatant
       //$infoNom = $this-> Fighters -> infosName();
       //$this->set('NomCombatant', $infoNom);
-
-      if ($this->request->is('post')){
-        if(isset($this->request->data['createFighter'])){
-          $this->Fighter->createCharacter($this->request->data['createFighter']['nom']);
-        }
-      }
-
-      if ($this->request->is('post')) {
-          if(isset($this->request->data['NewLevel'])) {
-              $this->Fighter->level_up(1, $this->request->data['NewLevel']['improve']);
-          }
-      }
     }
 
     public function sight()
