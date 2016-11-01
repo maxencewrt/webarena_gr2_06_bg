@@ -5,9 +5,11 @@ use Cake\ORM\Table;
 
 class EventsTable extends Table
 {
-    function displayEvents(){
+    /* Fonction test d'affichage d'évènements de la bdd */
+    /*function displayEvents(){
         $resultat = $this -> find("all");
         echo($resultat -> first());
-    } 
+    } */
+    
 }
 

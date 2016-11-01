@@ -165,8 +165,11 @@ class ArenasController extends AppController
 
     public function diary()
     {
-        $this -> loadModel('Events');
+        /* Test affichage events de la base de données */
+        /* $this -> loadModel('Events');
         $lastEvents = $this -> Events -> displayEvents();
-        $this -> set('lastEventsDisplay', $lastEvents);
+        $this -> set('lastEventsDisplay', $lastEvents); */
+        
+        
     }
   }
