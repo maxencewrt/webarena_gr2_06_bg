@@ -7,3 +7,6 @@
     echo $this->Form->input('password');
     echo $this->Form->button(__("Créer un compte"));
     echo $this->Form->end();?>
+
+    <h2> Informations </h2>
+    <?php echo $message;?>

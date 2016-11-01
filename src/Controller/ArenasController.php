@@ -28,19 +28,6 @@ class ArenasController extends AppController
         //pr($figterlist->toArray());
     }
 
-    public function forgottenpassword() {
-    if ($this->request->is('post')) {
-        if (isset($this->request->data['ForgottenPassword'])) {
-            if ($this->Player->sendPassword($this->request->data['ForgottenPassword']['email'])) {
-                $this->Session->setFlash("An email has been sent", 'notif');
-                $this->redirect(array('action' => 'login'));
-                } else {
-                   // $this->Flash->set("Wrong email adress");
-                }
-            }
-        }
-      }
-
     public function changepassword() {
         $messagechangemdp="</br> Aucun changement effectué";
         if($this->request->is('post')){
@@ -90,12 +77,12 @@ class ArenasController extends AppController
         if ($this->request->is('post')) {
           $player = $this->Players->patchEntity($player, $this->request->data);
           if ($this->Players->save($player)) {
-            $this->Flash->success(__('Nouveau compte crée'));
+            $message="Nouveau compte crée";
           }
           else{
-          $this->Flash->error(__('Impossible de créer un compte'));
+            $message="Impossible de créer un compte";
         }
-        $this->set('player', $player);
+        $this->set('message',$message);
       }
     }
 
@@ -111,12 +98,12 @@ class ArenasController extends AppController
       if ($this->request->is('post')) {
         $fighter = $this->Fighters->patchEntity($fighter, $this->request->data);
         if ($this->Fighters->save($fighter)) {
-          $this->Flash->success(__('Nouveau combatant crée'));
+          $message="Nouveau combatant crée";
         }
         else{
-        $this->Flash->error(__('Impossible de créer un nouveau combatant'));
+          $message="Impossible de créer un nouveau combatant";
       }
-      $this->set('fighter', $fighter);
+      $this->set('message', $message);
     }
     }
 
@@ -162,7 +149,7 @@ class ArenasController extends AppController
         /* $this -> loadModel('Events');
         $lastEvents = $this -> Events -> displayEvents();
         $this -> set('lastEventsDisplay', $lastEvents); */
-        
-        
+
+
     }
   }

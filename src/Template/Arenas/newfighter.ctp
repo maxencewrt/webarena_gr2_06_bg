@@ -28,3 +28,6 @@
 
     echo $this->Form->button(__("Créer un combatant"));
     echo $this->Form->end();?>
+
+    <h2> Informations </h2>
+    <?php echo $message;?>

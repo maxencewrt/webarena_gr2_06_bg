@@ -21,8 +21,7 @@
 
 <a href="newlogin"><input type="button" name="créer un compte "value="Créer un compte "/></a>
 
-<h2>Mot de passe oublié</span></h2>
-  <?php echo $this->Html->link("Modifier", array('action' => 'forgottenpassword'));?>
-
 <h2>Changement de mot de passe</span></h2>
-  <?php echo $this->Html->link("changer de mot de passe", array('action' => 'changepassword'));?>
+<a href="changepassword"><input type="button" name="changer de mot de passe"value="changer de mot de passe"/></a>
+
+<?php echo $this->Html->link("changer de mot de passe", array('action' => 'changepassword'));?>
