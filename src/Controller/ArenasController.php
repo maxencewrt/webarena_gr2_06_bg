@@ -18,6 +18,7 @@ use App\Controller\AppController;
 
 class ArenasController extends AppController
 {
+    
     public function index()
     {
             // die('test');
@@ -51,17 +52,22 @@ class ArenasController extends AppController
     public function login()
     {
       $message="</br> Veuillez vous connecter";
+      
       if($this->request->is('post')){
-        $data= $this->request->data;
-        $this->loadModel('Players');
-        $joueur=$this->Players->find('all')->where(['Players.email' => $data['userName']]);
-        $joueur = $joueur->first();
+            $data= $this->request->data;
+            $this->loadModel('Players');
+            $joueur=$this->Players->find('all')->where(['Players.email' => $data['userName']]);
+            $joueur = $joueur->first();
+        
         if($joueur['password'] == $data['password'] =! null AND $joueur['email'] == $data['userName'] =! null ){
           $message="Connexion réussie";
+          $this->request->session()->write('connected_id',$joueur['id']);
+          $this->request->session()->read('connected_id');
+          $this->request->session()->check('connected_id'); 
         }
         else{
             $message="Identifiants incorrects";
-          }
+        }
         }
         $this->set('message',$message);
       }
@@ -141,14 +147,25 @@ class ArenasController extends AppController
     {
 
     }
-
+       
     public function diary()
     {
         /* Test affichage events de la base de données */
         /* $this -> loadModel('Events');
         $lastEvents = $this -> Events -> displayEvents();
         $this -> set('lastEventsDisplay', $lastEvents); */
+                
+        $this->request->session()->read('connected_id');
+        $this->request->session()->check('connected_id');
+        
+        //if ($id_connected != null) {
 
+            $test = "azerty";
+            $this->set('test',$test);
+        
+        //}
+        
+        }
 
     }
-  }
+  

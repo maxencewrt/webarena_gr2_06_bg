@@ -58,10 +58,13 @@ $projectDescription = 'Web Arena : un duel des plus absurde';
             </li>
         </ul>
     </nav>
+    
     <?= $this->Flash->render() ?>
+        
     <section>
         <?= $this->fetch('content') ?>
     </section>
+    
     <footer>
         <ul class="bandeau">
             <li>Groupe GR2-06-BG</li>

@@ -15,6 +15,7 @@
 
         <h2> Informations </h2>
         <?php echo $message;?>
+        <?php echo $acces; ?>
 </div>
 
 <h2>Inscription</h2>

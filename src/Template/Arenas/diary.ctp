@@ -3,6 +3,9 @@
 <p> Ci-dessous les derniers évènements de vos combats : </p>
 
 <table id='events'>
+    
+    <?php echo $truc ?>
+    
 	<tr>
 		<th>Date</th>
 		<th>Evénement</th>
