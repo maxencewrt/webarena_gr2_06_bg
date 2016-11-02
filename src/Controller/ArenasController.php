@@ -36,8 +36,7 @@ class ArenasController extends AppController
           $joueur=$this->Players->find('all')->where(['Players.email' => $data['name']]);
           $joueur = $joueur->first();
           if($joueur['password'] == $data['ancienMDP'] =! null AND $joueur['email'] == $data['name'] =! null ){
-            //$messagechangemdp="Connexion réussie";
-            $this->set('password','newMPD');
+            $joueur->password= $data['newMPD'];
             $this->Players->save($joueur);
             $messagechangemdp="mot de passe modifié";
           }
